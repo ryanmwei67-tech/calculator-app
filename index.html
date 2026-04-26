@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CALCX</title>
+<title>CALCX - Smart Calculator</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -13,50 +13,96 @@
 <div class="app">
 
     <!-- Header -->
-    <div class="header">
+    <header class="header">
         <h1>CALCX</h1>
-        <p>Smart Calculations</p>
+        <p>Fast, Simple & Smart Calculator</p>
+    </header>
+
+    <!-- Top Ad Space -->
+    <div class="ad-space">
+        <!-- AdSense code will go here -->
+        <p>Advertisement</p>
     </div>
 
-    <!-- Display -->
-    <div class="display">
-        <input type="text" id="display" disabled>
+    <!-- Calculator -->
+    <section class="calculator">
+
+        <div class="display">
+            <input type="text" id="display" disabled>
+        </div>
+
+        <div class="history">
+            <h3>History</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+        <div class="buttons">
+            <button onclick="clearAll()" class="function">C</button>
+            <button onclick="deleteLast()" class="function">⌫</button>
+            <button onclick="append('%')" class="operator">%</button>
+            <button onclick="append('/')" class="operator">÷</button>
+
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('*')" class="operator">×</button>
+
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('-')" class="operator">−</button>
+
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('+')" class="operator">+</button>
+
+            <button onclick="append('0')" class="zero">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section class="content">
+        <h2>About CALCX</h2>
+        <p>
+            CALCX is a free online calculator designed to help students, professionals, 
+            and everyday users perform quick and accurate calculations. It is fast, simple, 
+            and works on all devices including mobile phones.
+        </p>
+
+        <h2>How to Use</h2>
+        <p>
+            Enter numbers using the buttons, choose an operation (+, −, ×, ÷), 
+            and press "=" to get your result. You can also view your previous calculations 
+            in the history section.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Fast calculations</li>
+            <li>History tracking</li>
+            <li>Mobile-friendly design</li>
+            <li>Simple and clean interface</li>
+        </ul>
+    </section>
+
+    <!-- Bottom Ad Space -->
+    <div class="ad-space">
+        <p>Advertisement</p>
     </div>
 
-    <!-- History -->
-    <div class="history">
-        <h3>History</h3>
-        <ul id="historyList"></ul>
-    </div>
-
-    <!-- Buttons -->
-    <div class="buttons">
-
-        <button onclick="clearAll()" class="function">C</button>
-        <button onclick="deleteLast()" class="function">⌫</button>
-        <button onclick="append('%')" class="operator">%</button>
-        <button onclick="append('/')" class="operator">÷</button>
-
-        <button onclick="append('7')">7</button>
-        <button onclick="append('8')">8</button>
-        <button onclick="append('9')">9</button>
-        <button onclick="append('*')" class="operator">×</button>
-
-        <button onclick="append('4')">4</button>
-        <button onclick="append('5')">5</button>
-        <button onclick="append('6')">6</button>
-        <button onclick="append('-')" class="operator">−</button>
-
-        <button onclick="append('1')">1</button>
-        <button onclick="append('2')">2</button>
-        <button onclick="append('3')">3</button>
-        <button onclick="append('+')" class="operator">+</button>
-
-        <button onclick="append('0')" class="zero">0</button>
-        <button onclick="append('.')">.</button>
-        <button onclick="calculate()" class="equal">=</button>
-
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 CALCX</p>
+        <p>Email: ryanmwei67@gmail.com</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Contact</a>
+        </p>
+    </footer>
 
 </div>
 
