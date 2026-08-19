@@ -1,106 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CALCX - Smart Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CALCX — a lightweight, accessible smart calculator for students and professionals.">
+  <title>CALCX - Smart Calculator</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
 
-<!-- AdSense (AFTER APPROVAL ONLY) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
-crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6606458301561565"
+     crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-<div class="app">
+  <div class="app">
 
-    <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
+      <div class="header-left">
         <h1>CALCX</h1>
-        <div class="header-buttons">
-            <button onclick="toggleTheme()">🌙</button>
-            <button onclick="toggleScientific()">🧠</button>
-        </div>
+        <p class="tagline">Smart Calculations</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+        <button type="button" onclick="toggleScientific()" aria-label="Toggle scientific mode">🧠</button>
+      </div>
     </header>
 
-    <!-- Top Ad -->
-    <div class="ad-space">
+    <main role="main">
+
+      <!-- Top Ad -->
+      <div class="ad-space" aria-hidden="true">
+        <!-- Ad slot (rendered after AdSense approval) -->
         <p>Advertisement</p>
-    </div>
+      </div>
 
-    <!-- Calculator -->
-    <section class="calculator">
+      <section class="calculator" aria-label="Calculator">
 
-        <input type="text" id="display" disabled>
+        <!-- Display: readonly so results can be copied and screen readers can access value -->
+        <input type="text" id="display" readonly aria-label="Calculator display" />
 
-        <div class="buttons">
+        <div class="buttons" role="group" aria-label="Calculator buttons">
 
-            <!-- Basic -->
-            <button onclick="clearAll()" class="function">C</button>
-            <button onclick="deleteLast()" class="function">⌫</button>
-            <button onclick="append('%')" class="operator">%</button>
-            <button onclick="append('/')" class="operator">÷</button>
+          <!-- Basic row -->
+          <button type="button" onclick="clearAll()" class="function" aria-label="Clear">C</button>
+          <button type="button" onclick="deleteLast()" class="function" aria-label="Delete last">⌫</button>
+          <button type="button" onclick="append('%')" class="operator" aria-label="Percent">%</button>
+          <button type="button" onclick="append('/')" class="operator" aria-label="Divide">÷</button>
 
-            <button onclick="append('7')">7</button>
-            <button onclick="append('8')">8</button>
-            <button onclick="append('9')">9</button>
-            <button onclick="append('*')" class="operator">×</button>
+          <!-- Numbers and operators -->
+          <button type="button" onclick="append('7')" aria-label="Seven">7</button>
+          <button type="button" onclick="append('8')" aria-label="Eight">8</button>
+          <button type="button" onclick="append('9')" aria-label="Nine">9</button>
+          <button type="button" onclick="append('*')" class="operator" aria-label="Multiply">×</button>
 
-            <button onclick="append('4')">4</button>
-            <button onclick="append('5')">5</button>
-            <button onclick="append('6')">6</button>
-            <button onclick="append('-')" class="operator">−</button>
+          <button type="button" onclick="append('4')" aria-label="Four">4</button>
+          <button type="button" onclick="append('5')" aria-label="Five">5</button>
+          <button type="button" onclick="append('6')" aria-label="Six">6</button>
+          <button type="button" onclick="append('-')" class="operator" aria-label="Minus">−</button>
 
-            <button onclick="append('1')">1</button>
-            <button onclick="append('2')">2</button>
-            <button onclick="append('3')">3</button>
-            <button onclick="append('+')" class="operator">+</button>
+          <button type="button" onclick="append('1')" aria-label="One">1</button>
+          <button type="button" onclick="append('2')" aria-label="Two">2</button>
+          <button type="button" onclick="append('3')" aria-label="Three">3</button>
+          <button type="button" onclick="append('+')" class="operator" aria-label="Plus">+</button>
 
-            <button onclick="append('0')" class="zero">0</button>
-            <button onclick="append('.')">.</button>
-            <button onclick="calculate()" class="equal">=</button>
-
-            <!-- Scientific -->
-            <div id="scientific" class="hidden">
-                <button onclick="append('Math.sqrt(')">√</button>
-                <button onclick="append('**2')">x²</button>
-                <button onclick="append('Math.sin(')">sin</button>
-                <button onclick="append('Math.cos(')">cos</button>
-                <button onclick="append('Math.tan(')">tan</button>
-                <button onclick="append('Math.log10(')">log</button>
-                <button onclick="append('Math.PI')">π</button>
-                <button onclick="append('Math.E')">e</button>
-            </div>
+          <button type="button" onclick="append('0')" class="zero" aria-label="Zero">0</button>
+          <button type="button" onclick="append('.')" aria-label="Decimal">.</button>
+          <button type="button" onclick="calculate()" class="equal" aria-label="Equals">=</button>
 
         </div>
 
-    </section>
+        <!-- Scientific panel (initially hidden) -->
+        <div id="scientific" class="hidden" aria-hidden="true">
+          <button type="button" onclick="append('Math.sqrt(')">√</button>
+          <button type="button" onclick="append('**2')">x²</button>
+          <button type="button" onclick="append('Math.sin(')">sin</button>
+          <button type="button" onclick="append('Math.cos(')">cos</button>
+          <button type="button" onclick="append('Math.tan(')">tan</button>
+          <button type="button" onclick="append('Math.log10(')">log</button>
+          <button type="button" onclick="append('Math.PI')">π</button>
+          <button type="button" onclick="append('Math.E')">e</button>
+        </div>
 
-    <!-- Content -->
-    <section class="content">
+      </section>
+
+      <section class="content">
         <h2>About CALCX</h2>
-        <p>Free smart calculator for students and professionals.</p>
-    </section>
+        <p>Free smart calculator for students and professionals. Lightweight, accessible, and easy to use.</p>
+      </section>
 
-    <!-- Bottom Ad -->
-    <div class="ad-space">
-        <p>Advertisement</p>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
+      <div class="footer-left">
         <p>© 2026 CALCX</p>
-        <p>Email: ryanmwei67@gmail.com</p>
-        <a href="privacy.html">Privacy Policy</a>
+        <p><a href="mailto:ryanmwei67@gmail.com">Contact</a> · <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+      <div class="footer-right">
+        <p>Built with care.</p>
+      </div>
     </footer>
 
-</div>
+  </div>
 
-<audio id="clickSound" src="click.mp3"></audio>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
