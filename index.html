@@ -24,8 +24,11 @@
         <p class="tagline">Smart Calculations</p>
       </div>
       <div class="header-actions">
-        <button type="button" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
-        <button type="button" onclick="toggleScientific()" aria-label="Toggle scientific mode">🧠</button>
+        <!-- Theme toggle: aria-pressed reflects whether light theme is active. -->
+        <button id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme" aria-pressed="false">🌙</button>
+
+        <!-- Scientific toggle: aria-controls points to the panel it toggles; aria-expanded reflects state -->
+        <button id="scientificToggle" type="button" onclick="toggleScientific()" aria-label="Toggle scientific mode" aria-pressed="false" aria-controls="scientific" aria-expanded="false">🧠</button>
       </div>
     </header>
 
@@ -39,8 +42,13 @@
 
       <section class="calculator" aria-label="Calculator">
 
-        <!-- Display: readonly so results can be copied and screen readers can access value -->
-        <input type="text" id="display" readonly aria-label="Calculator display" />
+        <!-- Display: readonly so results can be copied.
+             Keep input for copy/usability; also include a separate live region for screen readers. -->
+        <input type="text" id="display" readonly aria-label="Calculator display" inputmode="decimal" />
+
+        <!-- Live region for assistive tech — update its text whenever the display changes.
+             It's visually hidden but accessible to screen readers. -->
+        <span id="sr-display" class="sr-only" aria-live="polite" aria-atomic="true">0</span>
 
         <div class="buttons" role="group" aria-label="Calculator buttons">
 
