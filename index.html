@@ -6,59 +6,40 @@
   <meta name="description" content="CALCX — a lightweight, accessible smart calculator for students and professionals.">
   <title>CALCX - Smart Calculator</title>
 
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6606458301561565"
      crossorigin="anonymous"></script>
-
 </head>
-
 <body>
-
   <div class="app">
-
     <header class="header" role="banner">
       <div class="header-left">
         <h1>CALCX</h1>
         <p class="tagline">Smart Calculations</p>
       </div>
       <div class="header-actions">
-        <!-- Theme toggle: aria-pressed reflects whether light theme is active. -->
         <button id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme" aria-pressed="false">🌙</button>
-
-        <!-- Scientific toggle: aria-controls points to the panel it toggles; aria-expanded reflects state -->
         <button id="scientificToggle" type="button" onclick="toggleScientific()" aria-label="Toggle scientific mode" aria-pressed="false" aria-controls="scientific" aria-expanded="false">🧠</button>
       </div>
     </header>
 
     <main role="main">
-
-      <!-- Top Ad -->
       <div class="ad-space" aria-hidden="true">
-        <!-- Ad slot (rendered after AdSense approval) -->
         <p>Advertisement</p>
       </div>
 
       <section class="calculator" aria-label="Calculator">
-
-        <!-- Display: readonly so results can be copied.
-             Keep input for copy/usability; also include a separate live region for screen readers. -->
         <input type="text" id="display" readonly aria-label="Calculator display" inputmode="decimal" />
-
-        <!-- Live region for assistive tech — update its text whenever the display changes.
-             It's visually hidden but accessible to screen readers. -->
         <span id="sr-display" class="sr-only" aria-live="polite" aria-atomic="true">0</span>
 
         <div class="buttons" role="group" aria-label="Calculator buttons">
-
-          <!-- Basic row -->
           <button type="button" onclick="clearAll()" class="function" aria-label="Clear">C</button>
           <button type="button" onclick="deleteLast()" class="function" aria-label="Delete last">⌫</button>
           <button type="button" onclick="append('%')" class="operator" aria-label="Percent">%</button>
           <button type="button" onclick="append('/')" class="operator" aria-label="Divide">÷</button>
 
-          <!-- Numbers and operators -->
           <button type="button" onclick="append('7')" aria-label="Seven">7</button>
           <button type="button" onclick="append('8')" aria-label="Eight">8</button>
           <button type="button" onclick="append('9')" aria-label="Nine">9</button>
@@ -77,10 +58,8 @@
           <button type="button" onclick="append('0')" class="zero" aria-label="Zero">0</button>
           <button type="button" onclick="append('.')" aria-label="Decimal">.</button>
           <button type="button" onclick="calculate()" class="equal" aria-label="Equals">=</button>
-
         </div>
 
-        <!-- Scientific panel (initially hidden) -->
         <div id="scientific" class="hidden" aria-hidden="true">
           <button type="button" onclick="append('Math.sqrt(')">√</button>
           <button type="button" onclick="append('**2')">x²</button>
@@ -91,14 +70,12 @@
           <button type="button" onclick="append('Math.PI')">π</button>
           <button type="button" onclick="append('Math.E')">e</button>
         </div>
-
       </section>
 
       <section class="content">
         <h2>About CALCX</h2>
         <p>Free smart calculator for students and professionals. Lightweight, accessible, and easy to use.</p>
       </section>
-
     </main>
 
     <footer class="footer" role="contentinfo">
@@ -110,7 +87,6 @@
         <p>Built with care.</p>
       </div>
     </footer>
-
   </div>
 
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
